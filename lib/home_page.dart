@@ -5,28 +5,15 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: Text("Home"),
       ),
-      body: Center(
-        child: Container(
-          width: 200,
-          height: 30,
-          decoration: BoxDecoration(
-              color: Colors.orange,
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(21)),
-              border: Border.all(
-                color: Colors.black,
-                width: 2,
-              )),
-          child: Center(
-              child: Text("fkjnvjkfrnvjnfrvjlwnvlkfnvnvkljrwnvlkwrnvlkwnr", style: TextStyle(
-                overflow: TextOverflow.clip,
-              ),))
-        ),
-      ),
+        body: ClipRRect(
+          borderRadius: BorderRadius.circular(150),
+            child: Image.network("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", width:300, height: 300, fit: BoxFit.cover,)),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("Button tapped!!");
@@ -36,6 +23,28 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+///Image.asset("assets/images/bg_nature_2.jpg", ),
+
+///Center(
+//         child: Container(
+//           width: 200,
+//           height: 30,
+//           decoration: BoxDecoration(
+//               color: Colors.orange,
+//               borderRadius: BorderRadius.vertical(bottom: Radius.circular(21)),
+//               border: Border.all(
+//                 color: Colors.black,
+//                 width: 2,
+//               )),
+//           child: Center(
+//               child: Text("fkjnvjkfrnvjnfrvjlwnvlkfnvnvkljrwnvlkwrnvlkwnr", style: TextStyle(
+//                 overflow: TextOverflow.clip,
+//                 decoration: TextDecoration.lineThrough
+//               ),))
+//         ),
+//       )
+
 ///RichText(text: TextSpan(children: [
 //                 TextSpan(
 //                   text: "Hello",
