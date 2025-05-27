@@ -2,19 +2,43 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
+
+  TextEditingController emailController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
+
+    ///emailController.text = "Hello, Welcome";
+
     return Scaffold(
-      backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: Text("Home"),
       ),
-        body: ClipRRect(
-          borderRadius: BorderRadius.circular(150),
-            child: Image.network("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", width:300, height: 300, fit: BoxFit.cover,)),
-      floatingActionButton: FloatingActionButton(
+        body: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(11),
+              child: TextField(
+                controller: emailController,
+                decoration: InputDecoration(
+                  hintText: "Enter you mail..",
+                  hintStyle: TextStyle(color: Colors.black38),
+                  border: OutlineInputBorder(),
+                ),
+                /*onChanged: (value){
+                  ///search or filter
+                  print(value);
+                },*/
+              ),
+            ),
+            ElevatedButton(onPressed: (){
+              print("Email: ${emailController.text}");
+            }, child: Text('Login'))
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("Button tapped!!");
         },
@@ -23,6 +47,21 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+///Container(
+//           width: 300,
+//           height: 300,
+//           decoration: BoxDecoration(
+//             shape: BoxShape.circle,
+//             image: DecorationImage(
+//                 image: NetworkImage("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"), fit: BoxFit.cover)
+//           ),
+//         ),
+
+///ClipRRect(
+//           borderRadius: BorderRadius.circular(150),
+//             child: Image.network("https://m.media-amazon.com/images/M/MV5BMmU1YWU1NmMtMjAyMi00MjFiLWFmZmUtOTc1ZjI5ODkxYmQyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg", width:300, height: 300, fit: BoxFit.cover,)),
+//
 
 ///Image.asset("assets/images/bg_nature_2.jpg", ),
 
