@@ -2,43 +2,61 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatelessWidget {
-
   TextEditingController emailController = TextEditingController();
+  TextEditingController passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-
     ///emailController.text = "Hello, Welcome";
 
     return Scaffold(
+      backgroundColor: Colors.white.withAlpha(230),
       appBar: AppBar(
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         title: Text("Home"),
       ),
-        body: Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.all(11),
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  hintText: "Enter you mail..",
-                  hintStyle: TextStyle(color: Colors.black38),
-                  border: OutlineInputBorder(),
+      body: Column(
+        children: [
+          ElevatedButton(onPressed: () {
+            print("Logged in successfully");
+          }, child: Text("Login")),
+
+          OutlinedButton(onPressed: (){
+            print("Registered successfully");
+          }, child: Text("Register")),
+          
+          TextButton(onPressed: (){
+            print("Playing video");
+          }, child: Text("Play")),
+          
+          IconButton(onPressed: (){
+            print("Time updated");
+          }, icon: Icon(Icons.access_time_outlined)),
+
+          InkWell(
+            onTap: (){
+              print("Button tapped!!");
+            },
+            child: Container(
+              width: 130,
+              height: 40,
+              child: Center(child: Text("My Button", style: TextStyle(color: Colors.deepPurple),)),
+              decoration: BoxDecoration(
+                ///color: Colors.red,
+                borderRadius: BorderRadius.circular(21),
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1
                 ),
-                /*onChanged: (value){
-                  ///search or filter
-                  print(value);
-                },*/
               ),
+
             ),
-            ElevatedButton(onPressed: (){
-              print("Email: ${emailController.text}");
-            }, child: Text('Login'))
-          ],
-        ),
-        floatingActionButton: FloatingActionButton(
+          )
+          
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           print("Button tapped!!");
         },
@@ -47,6 +65,80 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+///Column(
+//           children: [
+//             Padding(
+//               padding: EdgeInsets.all(11),
+//               child: TextField(
+//                 controller: emailController,
+//                 decoration: InputDecoration(
+//                   enabled: true,
+//                   hintText: "Enter you mail..",
+//                   hintStyle: TextStyle(color: Colors.black38),
+//                   border: OutlineInputBorder(),
+//                   label: Text('Email'),
+//                   /*prefixText: "Mr./Miss ",*/
+//                   suffixText: "@gmail.com",
+//                   suffixIcon: InkWell(
+//                     onTap: (){
+//                       //emailController.text = "";
+//                       emailController.clear();
+//                     },
+//                       child: Icon(Icons.clear)),
+//                   prefixIconColor: Colors.blue,
+//                   prefixIcon: Icon(Icons.email_outlined,),
+//                   /*prefix: Icon(Icons.abc),*/
+//                   enabledBorder: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(21)
+//                   ),
+//                   focusedBorder: OutlineInputBorder(
+//                     borderRadius: BorderRadius.circular(21),
+//                     borderSide: BorderSide(
+//                       color: Colors.blue,
+//                       width: 2
+//                     )
+//                   ),
+//                   disabledBorder: OutlineInputBorder(
+//                       borderRadius: BorderRadius.circular(21),
+//                       borderSide: BorderSide(
+//                           color: Colors.grey.shade400,
+//                       )
+//                   )
+//                 ),
+//                 /*onChanged: (value){
+//                   ///search or filter
+//                   print(value);
+//                 },*/
+//               ),
+//             ),
+//             Padding(
+//               padding: EdgeInsets.all(11),
+//               child: TextField(
+//                 keyboardType: TextInputType.phone,
+//                 obscureText: true,
+//                 obscuringCharacter: "*",
+//                 controller: passController,
+//                 decoration: InputDecoration(
+//                   filled: true,
+//                   fillColor: Colors.white,
+//                   suffixIcon: Icon(Icons.visibility_off),
+//                   label: Text('Password'),
+//                     hintText: "Enter you password..",
+//                     hintStyle: TextStyle(color: Colors.black38),
+//                     border: OutlineInputBorder(),
+//                 ),
+//                 /*onChanged: (value){
+//                   ///search or filter
+//                   print(value);
+//                 },*/
+//               ),
+//             ),
+//             ElevatedButton(onPressed: (){
+//               print("Email: ${emailController.text}");
+//             }, child: Text('Login'))
+//           ],
+//         )
 
 ///Container(
 //           width: 300,
